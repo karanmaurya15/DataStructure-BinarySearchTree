@@ -54,5 +54,9 @@ namespace DataStructure_BinarySearchTree
                 this.rightTree.Display();
             }
         }
+        public void GetSize()
+        {
+            Console.WriteLine("\nSize is :-" + " " + (1 + this.leftCount + this.rightCount));
+        }
     }
 }
