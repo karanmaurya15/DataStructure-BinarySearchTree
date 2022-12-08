@@ -28,14 +28,18 @@ namespace DataStructure_BinarySearchTree
             if ((currentNodeValue.CompareTo(item)) > 0)
             {
                 if (this.leftTree == null)
+                {
                     this.leftTree = new BinarySearchTree<T>(item);
+                }
                 else
                     this.leftTree.Insert(item);
             }
             else
             {
                 if (this.rightTree == null)
+                {
                     this.rightTree = new BinarySearchTree<T>(item);
+                }
                 else
                     this.rightTree.Insert(item);
             }
@@ -57,6 +61,25 @@ namespace DataStructure_BinarySearchTree
         public void GetSize()
         {
             Console.WriteLine("\nSize is :-" + " " + (1 + this.leftCount + this.rightCount));
+        }
+        public bool IfExists(T element, BinarySearchTree<T> node)
+        {
+            if (node == null)
+                return false;
+            if (node.NodeData.Equals(element))
+            {
+                Console.WriteLine("\nFound the element in BST" + " " + node.NodeData);
+                result = true;
+            }
+            if (element.CompareTo(node.NodeData) < 0)
+            {
+                IfExists(element, node.leftTree);
+            }
+            else 
+            {
+                IfExists(element, node.rightTree);
+            }
+            return result;
         }
     }
 }
